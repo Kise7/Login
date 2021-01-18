@@ -1,0 +1,70 @@
+﻿@model Assignment.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        .field-validation-error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+        {
+            <table>
+                >
+                <tr>
+                    <td>
+                    <td style="text-decoration:underline">Login</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.username)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.username)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.username) </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.password)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.password)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.username) </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="name" value="Login" />
+                        <input type="reset" name="name" value="Clear" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
